@@ -2,13 +2,13 @@
 
 namespace MyApp;
 
-//true
+//true hvis:
 // divideres med 4
-// ikke med 100, medmindre de kan divideres med 400
+// ikke divideres med 100, medmindre det kan divideres med 400
 
 public class LeapYear {
     
-    public bool IsALeapYear(int year) {
+    public bool isLeapYear(int year) {
         if(year <= 0) {
             return false;
         }
@@ -17,6 +17,17 @@ public class LeapYear {
             return true;
         }
     return false;
+    }
+
+    public void isLeapYearWithUserInput() {
+        Console.WriteLine("Enter year: ");
+        int year = Convert.ToInt32(Console.ReadLine());
+        
+        if(isLeapYear(year)) {
+            Console.WriteLine("yay");
+        }else {
+            Console.WriteLine("nay");
+        }
     }
 
 }
