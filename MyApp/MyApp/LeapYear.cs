@@ -8,11 +8,15 @@ namespace MyApp;
 
 public class LeapYear {
     
-    public static void main(string[] args) {
-
-    }
     public bool IsALeapYear(int year) {
-    return true;
+        if(year <= 0) {
+            return false;
+        }
+
+        if(((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+            return true;
+        }
+    return false;
     }
 
 }

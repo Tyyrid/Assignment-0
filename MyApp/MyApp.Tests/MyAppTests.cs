@@ -12,6 +12,19 @@ public class MyAppTests
         var result = sut.IsALeapYear(2000);
 
         //Assert//
+        result.Should().Be(true);
+    }
+
+    [Fact]
+        public void Checks_if_year_1700_is_leap_year()
+    {
+        //Act//
+        var sut = new LeapYear();
+
+        //Arrange//
+        var result = sut.IsALeapYear(1700);
+
+        //Assert//
         result.Should().Be(false);
     }
   
