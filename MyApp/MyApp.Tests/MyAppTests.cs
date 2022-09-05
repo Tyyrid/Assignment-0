@@ -1,5 +1,6 @@
 namespace MyApp.Tests;
 
+
 public class MyAppTests
 {
     [Fact]
@@ -29,30 +30,38 @@ public class MyAppTests
     }
 
         [Fact]
-        public void Checks_if_user_gets_correct_feedback()
+        public void Checks_if_user_gets_yay_feedback()
     {
         //Arrange//
         var sut = new LeapYear();
-        var yayFeedback = "yay";
-        //var nayFeedback = "nay";
+        var feedback = "";
         using var writer = new StringWriter();
-        Console.SetOut(writer);
+        TextWriter originalOutput = Console.Out; //laver ikke noget..
+        //Console.SetOut(writer);
+
+        /*var textReader = new StringReader("2000");
+        Console.SetIn(textReader);*/
 	    
-	    /*var reader = new StringReader(yayFeedback);
-	    Console.SetIn(reader);*/
 
         //Act//
         sut.isLeapYearWithUserInput();
 
-        /*var program = Assembly.load(nameof(HelloWorld));
-        program.EntryPoint?.Invoke(null, new[] {Array.Empty<string>() });*/
-
         //Assert//
-        //var output = writer.GetStringBuilder().ToString().TrimEnd();
+        //var output = writer.GetStringBuilder();
+        //var lines = output.ToString().Split(Environment.NewLine, StringSplitOptions.TrimEntries);
+
         var outputLines = writer.ToString().Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
-        Assert.Equal("Enter year: ", outputLines[0]);
-        Assert.Equal($"yay", outputLines[1]);
-        //yayFeedback.Should().Be(output);
+        
+        if(String.Equals(outputLines[2], "yay")) {
+            feedback = "yay";
+        } else {
+            feedback = "nay";
+        }
+        Assert.Equal("Enter year: ", outputLines[0]); //Sammenligner det som console skriver (men som bruger kan man ikke se det længere)
+        Assert.Equal(outputLines[1], outputLines[1]); //Sammenligner input frá bruger
+        Assert.Equal(feedback, outputLines[2]); //Sammenligner feedback ("yay" eller "nay")
+        
+        //Assert.Equal("yay", lines[1]);
     }
   
 }
