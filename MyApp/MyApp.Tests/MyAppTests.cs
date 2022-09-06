@@ -68,7 +68,7 @@ public class MyAppTests
 
 
     //år før 1582
-    /*[Fact]
+    [Fact]
     public void check_exception_when_year_before_1582() {
         //Arrange//
         var sut = new LeapYear();
@@ -85,8 +85,7 @@ public class MyAppTests
         var output = writer.GetStringBuilder();
         var lines = output.ToString().Split(Environment.NewLine, StringSplitOptions.TrimEntries);
         Assert.Equal("Please enter a year after 1582.", lines[1]);
-
-    }*/
+    }
 
 
     //bogstaver + andet
