@@ -20,14 +20,45 @@ public class LeapYear {
     }
 
     public void isLeapYearWithUserInput() {
-        Console.WriteLine("Enter year: ");
-        int year = Convert.ToInt32(Console.ReadLine());
-        
+        /*var integerEntered = false;
+        int year = 0;
+
+        while (!integerEntered) {
+            Console.WriteLine("Enter year: ");
+            var entered = Console.ReadLine();
+            integerEntered = int.TryParse(entered, out year);
+                if (!integerEntered)
+                    Console.WriteLine("That was no valid integer. Please try again.");
+        }
+
         if(isLeapYear(year)) {
             Console.WriteLine("yay");
-        }else {
+            }else {
             Console.WriteLine("nay");
+            }*/
+
+    Console.WriteLine("Enter year: ");
+    int year = 0;
+        try {
+            year = Convert.ToInt32(Console.ReadLine());
+
+            if(isLeapYear(year)) {
+            Console.WriteLine("yay");
+            }else {
+            Console.WriteLine("nay");
+            }
+
+        }catch(Exception) {
+            Console.WriteLine("Please enter a valid year" );
+            //Console.WriteLine("{0}: {1}", e.GetType().Name, e.Message);
+            //throw new FormatException("Please enter a valid year: ");
+           
+            //isLeapYearWithUserInput();
         }
+
+        
+
+        
     }
 
 }

@@ -65,5 +65,49 @@ public class MyAppTests
         Assert.Equal(feedback, outputLines[2]); //Sammenligner feedback ("yay" eller "nay")*/
         
     }
+
+
+    //år før 1582
+    /*[Fact]
+    public void check_exception_when_year_before_1582() {
+        //Arrange//
+        var sut = new LeapYear();
+        using var writer = new StringWriter();
+        Console.SetOut(writer);
+
+        var textReader = new StringReader("1581");
+        Console.SetIn(textReader);
+
+        //Act//
+        sut.isLeapYearWithUserInput();
+       
+        //Assert//
+        var output = writer.GetStringBuilder();
+        var lines = output.ToString().Split(Environment.NewLine, StringSplitOptions.TrimEntries);
+        Assert.Equal("Please enter a year after 1582.", lines[1]);
+
+    }*/
+
+
+    //bogstaver + andet
+    [Fact]
+       public void check_exception_when_input_is_invalid() {
+        //Arrange//
+        var sut = new LeapYear();
+        using var writer = new StringWriter();
+        Console.SetOut(writer);
+
+        var textReader = new StringReader("Hej");
+        Console.SetIn(textReader);
+
+        //Act//
+        sut.isLeapYearWithUserInput();
+       
+        //Assert//
+        var output = writer.GetStringBuilder();
+        var lines = output.ToString().Split(Environment.NewLine, StringSplitOptions.TrimEntries);
+        Assert.Equal("Please enter a valid year", lines[1]);
+
+    }
   
 }
