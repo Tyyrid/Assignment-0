@@ -69,7 +69,7 @@ public class MyAppTests
 
     //år før 1582
     [Fact]
-    public void check_exception_when_year_before_1582() {
+    public void Check_exception_when_year_before_1582() {
         //Arrange//
         var sut = new LeapYear();
         using var writer = new StringWriter();
@@ -90,7 +90,7 @@ public class MyAppTests
 
     //bogstaver + andet
     [Fact]
-       public void check_exception_when_input_is_invalid() {
+       public void Check_exception_when_input_is_invalid() {
         //Arrange//
         var sut = new LeapYear();
         using var writer = new StringWriter();
